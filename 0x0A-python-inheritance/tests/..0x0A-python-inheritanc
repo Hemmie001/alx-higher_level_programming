@@ -1,0 +1,9 @@
+#!/usr/bin/python3
+""" The MyList class that inherits from list """
+
+
+class MyList(list):
+    """ Inherits from list """
+    def print_sorted(self):
+        """this sorts the list and  prints in an ascending order """
+        print(sorted(self))i
