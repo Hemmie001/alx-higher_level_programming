@@ -3,9 +3,9 @@
 
 
 class Student:
-    """Class Student"""
+    """representation of a student"""
     def __init__(self, first_name, last_name, age):
-        """Init method"""
+        """instantiation of the student"""
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
@@ -16,15 +16,8 @@ class Student:
         if (type(attrs) == list and
                 all(type(element) == str for element in attrs)):
             new_dict = {}
-        for element in attrs:
-            if element in self.__dict__:
-                new_dict[element] = self.__dict__[element]
+            for element in attrs:
+                if element in self.__dict__:
+                    new_dict[element] = self.__dict__[element]
             return (new_dict)
         return (self.__dict__)
-
-        def reload_from_json(self, json):
-            """Reload the instance from a json"""
-            if json != {}:
-                self.first_name = json["first_name"]
-                self.last_name = json["last_name"]
-                self.age = json["age"]
