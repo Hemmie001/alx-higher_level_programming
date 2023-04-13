@@ -14,17 +14,17 @@ class Student:
         """retrieves a dictionary representation of a Student instance
         with filter"""
         if (type(attrs) == list and
-            all(type(element) == str for element in attrs)):
-        new_dict = {}
+                all(type(element) == str for element in attrs)):
+            new_dict = {}
         for element in attrs:
-                if element in self.__dict__:
-                    new_dict[element] = self.__dict__[element]
+            if element in self.__dict__:
+                new_dict[element] = self.__dict__[element]
             return (new_dict)
         return (self.__dict__)
 
-    def reload_from_json(self, json):
-        """Reload the instance from a json"""
-        if json != {}:
-            self.first_name = json["first_name"]
-            self.last_name = json["last_name"]
-            self.age = json["age"]
+        def reload_from_json(self, json):
+            """Reload the instance from a json"""
+            if json != {}:
+                self.first_name = json["first_name"]
+                self.last_name = json["last_name"]
+                self.age = json["age"]
