@@ -1,16 +1,22 @@
 #!/usr/bin/python3
-""" Module 7-base_geometry"""
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
+bg = BaseGeometry()
 
-class BaseGeometry:
-    """Class BaseGeometry"""
-    def area(self):
-        raise Exception('area() is not implemented')
+bg.integer_validator("my_int", 12)
+bg.integer_validator("width", 89)
 
-    def integer_validator(self, name, value):
-        """integer_validator function"""
-        if type(value) != int:
-            raise TypeError(name + ' must be an integer')
-        if value <= 0:
-            raise ValueError(name + ' must be greater than 0')
+try:
+    bg.integer_validator("name", "John")
+except Exception as e:
+    print("[{}] {}".format(e.__class__.__name__, e))
 
+try:
+    bg.integer_validator("age", 0)
+except Exception as e:
+    print("[{}] {}".format(e.__class__.__name__, e))
+
+try:
+    bg.integer_validator("distance", -4)
+except Exception as e:
+    print("[{}] {}".format(e.__class__.__name__, e))
