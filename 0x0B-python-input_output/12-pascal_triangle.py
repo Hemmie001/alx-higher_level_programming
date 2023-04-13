@@ -3,13 +3,21 @@
 
 
 def pascal_triangle(n):
-    """returns a list of lists of integers
-    representing the Pascal’s triangle of n"""
-    triangle = []
+    """
+    returns a list of lists of integers
+    representing the Pascal’s triangle
+    """
+
     if n <= 0:
         return []
-    for i in range(n):
-        a = 11 ** i
-        row = [int(digit) for digit in str(a)]
-        triangle += [row]
-    return triangle
+    lista = [[1]]
+    tmp = []
+    for i in range(n - 1):
+        tmp = tmp.copy()
+        tmp = []
+        tmp.append(1)
+        for j in range(i):
+            tmp.append(lista[i][j] + lista[i][j + 1])
+        tmp.append(1)
+        lista.append(tmp)
+    return listaie
