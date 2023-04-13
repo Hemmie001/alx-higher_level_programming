@@ -1,15 +1,31 @@
 #!/usr/bin/python3
-"""11. Student to disk and reload1"""
+"""Student to disk and reload"""
 
 
 class Student:
-    """Class Student"""
+    """student representation"""
     def __init__(self, first_name, last_name, age):
-        """Init method"""
+        """instantiates the student"""
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
-    def to_json(self):
-        """Method to_json"""
-        return self.__dict__
+    def to_json(self, attrs=None):
+        """
+        retrieves a dictionary representation of a Student instance
+        """
+        if (type(attrs) == list and
+                all(type(element) == str for element in attrs)):
+            new_dict = {}
+            for element in attrs:
+                if element in self.__dict__:
+                    new_dict[element] = self.__dict__[element]
+            return (new_dict)
+        return (self.__dict__)
+
+    def reload_from_json(self, json):
+        """
+        this  replaces all attributes of the Student instance
+        """
+        for key, value in json.items():
+            setattr(self, key, value)
