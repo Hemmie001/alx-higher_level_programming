@@ -22,9 +22,9 @@ class Student:
             return (new_dict)
         return (self.__dict__)
 
-        def reload_from_json(self, json):
+        """def reload_from_json(self, json):
             """Reload the instance from a json"""
             if json != {}:
                 self.first_name = json["first_name"]
                 self.last_name = json["last_name"]
-                self.age = json["age"]
+                self.age = json["age"]"""
