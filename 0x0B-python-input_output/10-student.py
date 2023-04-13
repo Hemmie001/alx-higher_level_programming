@@ -3,16 +3,17 @@
 
 
 class Student:
-    """representation of a student"""
+    """student representation"""
     def __init__(self, first_name, last_name, age):
-        """instantiation of the student"""
+        """instantiates the student"""
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self, attrs=None):
-        """retrieves a dictionary representation of a Student instance
-        with filter"""
+        """
+        retrieves a dictionary representation of a Student
+        """
         if (type(attrs) == list and
                 all(type(element) == str for element in attrs)):
             new_dict = {}
