@@ -2,12 +2,10 @@
 """Write to a file"""
 
 
-def number_of_lines(filename="", text=""):
+def write_file(filename="", text=""):
     """ writes a string to a text file (UTF8)
     and returns the number of characters written"""
-    with open(filename, mode="r", encoding="utf-8") as text_file:
-        counter = 0
-        for line in text_file:
-            counter += 1
+    with open(filename, mode="w", encoding="utf-8") as text_file:
+        characters = text_file.write(text)
     text_file.close()
-    return counter
+    return characters
