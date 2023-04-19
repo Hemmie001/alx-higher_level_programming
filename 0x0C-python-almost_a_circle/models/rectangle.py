@@ -98,7 +98,7 @@ class Rectangle(Base):
     def __str__(my_rectangle):
         """String method"""
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
-            break_pep8=my_rectangle.id, my_rectangle.x, my_rectangle.y,
+            break_pep8 = my_rectangle.id, my_rectangle.x, my_rectangle.y,
             my_rectangle.width, my_rectangle.height) = break_pep8
 
     def update(my_rectangle, *args, **kwargs):
