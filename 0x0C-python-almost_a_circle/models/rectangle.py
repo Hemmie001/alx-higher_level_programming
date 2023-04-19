@@ -114,5 +114,6 @@ class Rectangle(Base):
     def to_dictionary(my_rectangle):
         """To dictionary method"""
         attributes = ["id", "width", "height", "x", "y"]
-        values = [my_rectangle.id, my_rectangle.width, my_rectangle.height, my_rectangle.x, my_rectangle.y]
+        values = [my_rectangle.id, my_rectangle.width,
+                  my_rectangle.height, my_rectangle.x, my_rectangle.y]
         return dict(zip(attributes, values))
