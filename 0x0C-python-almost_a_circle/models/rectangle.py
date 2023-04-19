@@ -98,8 +98,8 @@ class Rectangle(Base):
     def __str__(my_rectangle):
         """String method"""
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
-            break_pep8 = my_rectangle.id, my_rectangle.x, my_rectangle.y,
-            my_rectangle.width, my_rectangle.height) = break_pep8
+            my_rectangle.id, my_rectangle.x, my_rectangle.y,
+            my_rectangle.width, my_rectangle.height)
 
     def update(my_rectangle, *args, **kwargs):
         """Update method"""
@@ -114,7 +114,5 @@ class Rectangle(Base):
     def to_dictionary(my_rectangle):
         """To dictionary method"""
         attributes = ["id", "width", "height", "x", "y"]
-        break_pep8 = values = [my_rectangle.id, my_rectangle.width,
-                               my_rectangle.height, my_rectangle.x,
-                               my_rectangle.y] = break_pep8
+        values = [my_rectangle.id, my_rectangle.width, my_rectangle.height, my_rectangle.x, my_rectangle.y]
         return dict(zip(attributes, values))
