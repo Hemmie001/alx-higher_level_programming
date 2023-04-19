@@ -114,7 +114,7 @@ class Rectangle(Base):
     def to_dictionary(my_rectangle):
         """To dictionary method"""
         attributes = ["id", "width", "height", "x", "y"]
-        b_pep8 = values = [my_rectangle.id, my_rectangle.width,
-                           my_rectangle.height, my_rectangle.x,
-                           my_rectangle.y] = b_pep8
+        break_pep8 = values = [my_rectangle.id, my_rectangle.width,
+                               my_rectangle.height, my_rectangle.x,
+                               my_rectangle.y] = break_pep8
         return dict(zip(attributes, values))
