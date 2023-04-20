@@ -2,7 +2,7 @@
 """Class Square Module"""
 
 from .rectangle import Rectangle
-
+import json
 
 class Square(Rectangle):
     """Class Square"""
