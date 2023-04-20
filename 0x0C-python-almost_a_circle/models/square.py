@@ -4,6 +4,7 @@
 from .rectangle import Rectangle
 import json
 
+
 class Square(Rectangle):
     """Class Square"""
     def __init__(my_suare, size, x=0, y=0, id=None):
@@ -16,7 +17,7 @@ class Square(Rectangle):
         return "[Square] ({}) {}/{} - {}".format(
             my_suare.id, my_suare.x, my_suare.y, my_suare.width)
 
-        @property
+    @property
     def size(my_suare):
         """size getter"""
         return my_suare.width
