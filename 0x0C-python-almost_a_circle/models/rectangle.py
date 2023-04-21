@@ -7,80 +7,80 @@ class Rectangle(Base):
 
     """Class Rectangle"""
 
-    def __init__(my_rectangle, width, height, x=0, y=0, id=None):
+    def __init__(self, width, height, x=0, y=0, id=None):
         """Init method"""
-        my_rectangle.width = width
-        my_rectangle.height = height
-        my_rectangle.x = x
-        my_rectangle.y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
         super().__init__(id)
 
     @property
-    def width(my_rectangle):
+    def width(self):
         """Width getter method"""
-        return my_rectangle.__width
+        return self.__width
 
     @width.setter
-    def width(my_rectangle, value):
+    def width(self, value):
         """Width setter method"""
         if not isinstance(value, int):
             raise TypeError('width must be an integer')
         if value <= 0:
             raise ValueError('width must be > 0')
-        my_rectangle.__width = value
+        self.__width = value
 
     @property
-    def height(my_rectangle):
+    def height(self):
         """Height getter method"""
-        return my_rectangle.__height
+        return self.__height
 
     @height.setter
-    def height(my_rectangle, value):
+    def height(self, value):
         """Height setter method"""
         if not isinstance(value, int):
             raise TypeError('height must be an integer')
         if value <= 0:
             raise ValueError('height must be > 0')
-        my_rectangle.__height = value
+        self.__height = value
 
     @property
-    def x(my_rectangle):
+    def x(self):
         """X getter method"""
-        return my_rectangle.__x
+        return self.__x
 
     @x.setter
-    def x(my_rectangle, value):
+    def x(self, value):
         """X setter method"""
         if not isinstance(value, int):
             raise TypeError('x must be an integer')
         if value < 0:
             raise ValueError('x must be >= 0')
-        my_rectangle.__x = value
+        self.__x = value
 
     @property
-    def y(my_rectangle):
+    def y(self):
         """Y getter method"""
-        return my_rectangle.__y
+        return self.__y
 
     @y.setter
-    def y(my_rectangle, value):
+    def y(self, value):
         """Y setter method"""
         if not isinstance(value, int):
             raise TypeError('y must be an integer')
         if value < 0:
             raise ValueError('y must be >= 0')
-        my_rectangle.__y = value
+        self.__y = value
 
-    def area(my_rectangle):
+    def area(self):
         """returns the Area of the rectangle instance """
-        return my_rectangle.__width * my_rectangle.__height
+        return self.__width * self.__height
 
-    def display(my_rectangle):
+    def display(self):
         """prints in stdout the Rectangle instance"""
-        pos_height = my_rectangle.height
-        pos_width = my_rectangle.width
-        pos_x = my_rectangle.x
-        pos_y = my_rectangle.y
+        pos_height = self.height
+        pos_width = self.width
+        pos_x = self.x
+        pos_y = self.y
 
         if pos_height == 0 or pos_width == 0:
             print()
@@ -95,25 +95,25 @@ class Rectangle(Base):
                 print('#', end='')
             print()
 
-    def __str__(my_rectangle):
+    def __str__(self):
         """String method"""
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
-            my_rectangle.id, my_rectangle.x, my_rectangle.y,
-            my_rectangle.width, my_rectangle.height)
+            self.id, self.x, self.y,
+            self.width, self.height)
 
-    def update(my_rectangle, *args, **kwargs):
+    def update(self, *args, **kwargs):
         """Update method"""
         attributes = ["id", "width", "height", "x", "y"]
         if args is not None:
             for i in range(len(args)):
-                setattr(my_rectangle, attributes[i], args[i])
+                setattr(self, attributes[i], args[i])
         if kwargs is not None:
             for key, value in kwargs.items():
-                setattr(my_rectangle, key, value)
+                setattr(self, key, value)
 
-    def to_dictionary(my_rectangle):
+    def to_dictionary(self):
         """To dictionary method"""
         attributes = ["id", "width", "height", "x", "y"]
-        values = [my_rectangle.id, my_rectangle.width,
-                  my_rectangle.height, my_rectangle.x, my_rectangle.y]
+        values = [self.id, self.width,
+                  self.height, self.x, self.y]
         return dict(zip(attributes, values))

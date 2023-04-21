@@ -7,29 +7,29 @@ class Square(Rectangle):
     """
         this Square repreesentation implements rectangle
     """
-    def __init__(my_square, size, x=0, y=0, id=None):
+    def __init__(self, size, x=0, y=0, id=None):
         """
             initialises Square (overrides Rectangle init)
         """
         super().__init__(size, size, x, y, id)
 
     @property
-    def size(my_square):
+    def size(self):
         """returns the size of the square"""
-        return my_square.width
+        return self.width
 
     @size.setter
-    def size(my_square, value):
+    def size(self, value):
         """sets the value of size"""
         if type(value) != int:
             raise TypeError("width must be an integer")
         if value <= 0:
             raise ValueError("width must be > 0")
 
-        my_square.width = value
-        my_square.height = value
+        self.width = value
+        self.height = value
 
-    def update(my_square, *args, **kwargs):
+    def update(self, *args, **kwargs):
         """
             assigns key/value argument to attributes
             kwargs is skipped if args is not empty
@@ -39,29 +39,29 @@ class Square(Rectangle):
         """
         if len(args) == 0:
             for key, val in kwargs.items():
-                my_square.__setattr__(key, val)
+                self.__setattr__(key, val)
             return
 
         try:
-            my_square.id = args[0]
-            my_square.size = args[1]
-            my_square.x = args[2]
-            my_square.y = args[3]
+            self.id = args[0]
+            self.size = args[1]
+            self.x = args[2]
+            self.y = args[3]
         except IndexError:
             pass
 
-    def __str__(my_square):
+    def __str__(self):
         """Overloading str function"""
-        return "[{}] ({}) {}/{} - {}".format(type(my_square).__name__,
-                                             my_square.id, my_square.x,
-                                             my_square.y,
-                                             my_square.width)
+        return "[{}] ({}) {}/{} - {}".format(type(self).__name__,
+                                             self.id, self.x,
+                                             self.y,
+                                             self.width)
 
-    def to_dictionary(my_square):
+    def to_dictionary(self):
         """
             Returns the dictionary representation of a Square
         """
-        return {'id': getattr(my_square, "id"),
-                'size': getattr(my_square, "width"),
-                'x': getattr(my_square, "x"),
-                'y': getattr(my_square, "y")}
+        return {'id': getattr(self, "id"),
+                'size': getattr(self, "width"),
+                'x': getattr(self, "x"),
+                'y': getattr(self, "y")}
