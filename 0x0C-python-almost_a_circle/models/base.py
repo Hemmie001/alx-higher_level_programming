@@ -6,13 +6,19 @@ import os
 import csv
 import turtle
 
+
 class Base:
-    """Class Base"""
+    """
+    represents the  Base model
+    represents the base for all other calsses
+    Attributes:
+        __nb_objects (int): The number of instantiated Bases.
+    """
 
     __nb_objects = 0
 
     def __init__(my_base, id=None):
-        """this constructor initialises the object state"""
+        """this constructor initialises a new base"""
         if id is not None:
             my_base.id = id
         else:
@@ -21,14 +27,22 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """pass the list_dictionaries to JSON string"""
+        """
+        Return the JSON serialization of a list of dicts.
+        Args:
+            list_dictionaries (list): A list of dictionaries.
+        """
         if list_dictionaries is None or len(list_dictionaries) == 0:
             return "[]"
         return json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
-        """writes the JSON string above to a file"""
+        """
+        Write the JSON serialization of a list of objects to a file.
+        Args:
+            list_objs (list): A list of inherited Base instances.
+        """
         list_dict = []
         for i in list_objs:
             list_dict.append(i.to_dictionary())
@@ -44,7 +58,11 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        """returns an instance with its attributes set"""
+        """
+        Return a class instantied from a dictionary of attributes.
+        Args:
+            **dictionary (dict): Key/value pairs of attributes to initialize.
+        """
         new_inst = cls(1, 1)
         if new_inst is not None:
             new_inst.update(**dictionary)
