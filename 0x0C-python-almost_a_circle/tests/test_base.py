@@ -5,7 +5,6 @@
 import unittest
 from models.base import Base
 
-
 class Testbase(unittest.Testbase):
     """Test for Base"""
 
