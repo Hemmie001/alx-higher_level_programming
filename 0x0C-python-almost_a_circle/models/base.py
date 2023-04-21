@@ -5,11 +5,20 @@ import csv
 
 
 class Base:
-    """Class Base"""
+    """
+    Represent the base model.
+    Represents the "base" for all other classes in project 0x0C*.
+    Attributes:
+        __nb_objects (int): The number of instantiated Bases.
+    """
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """Init function"""
+        """
+        Initialize a new Base.
+        Args:
+            id (int): The identity of the new Base.
+        """
         if id is not None:
             self.id = id
         else:
@@ -18,7 +27,11 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """Pass list to JSON string"""
+        """
+        Return the JSON serialization of a list of dicts.
+        Args:
+            list_dictionaries (list): A list of dictionaries.
+        """
         if list_dictionaries is None:
             return json.dumps([])
         else:
@@ -26,7 +39,11 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
-        """Write json to a file"""
+        """
+        Write the JSON serialization of a list of objects to a file.
+        Args:
+            list_objs (list): A list of inherited Base instances.
+        """
         if list_objs is None:
             list_obj = []
         else:
@@ -36,7 +53,14 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        """From json string"""
+        """
+        Return the deserialization of a JSON string.
+        Args:
+            json_string (str): A JSON str representation of a list of dicts.
+        Returns:
+            If json_string is None or empty - an empty list.
+            Otherwise - the Python list represented by json_string.
+        """
         if json_string is None or json_string == "":
             return []
         else:
@@ -44,7 +68,9 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        """Create method"""
+        """Return a class instantied from a dictionary of attributes.
+        Args:
+            **dictionary (dict): Key/value pairs of attributes to initialize"""
         if cls.__name__ == "Rectangle":
             dummy = cls(1, 1)
         elif cls.__name__ == "Square":
@@ -54,7 +80,13 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        """Load from a file"""
+        """
+        Return a list of classes instantiated from a file of JSON strings.
+        Reads from `<cls.__name__>.json`.
+        Returns:
+            If the file does not exist - an empty list.
+            Otherwise - a list of instantiated classes.
+        """
         try:
             with open(cls.__name__ + ".json", mode="r", encoding="utf-8") as f:
                 if f is None:
@@ -70,7 +102,11 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
-        """Write json to a file"""
+        """
+        Write the CSV serialization of a list of objects to a file.
+        Args:
+            list_objs (list): A list of inherited Base instances.
+        """
         if list_objs is None:
             list_obj = []
         else:
@@ -80,7 +116,10 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
-        """Load from a file"""
+        """
+        Load the CSV serialization of a list of objects from a file.
+        Args:
+        """
         try:
             with open(cls.__name__ + ".csv", mode="r", encoding="utf-8") as f:
                 if f is None:
