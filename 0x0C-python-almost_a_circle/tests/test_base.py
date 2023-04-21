@@ -8,6 +8,10 @@ import sys
 
 from models.base import Base
 
+p = os.path.abspath('.')
+sys.path.insert(1, p)
+
+
 class Testbase(unittest.Testbase):
     """Test for Base"""
 
