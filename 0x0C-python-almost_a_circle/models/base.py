@@ -65,7 +65,7 @@ class Base:
                     for i in tmp:
                         result.append(cls.create(**i))
                     return result
-        except:
+        except CanNotWriteToFile:
             return []
 
     @classmethod
@@ -91,5 +91,5 @@ class Base:
                     for i in tmp:
                         result.append(cls.create(**i))
                     return result
-        except:
+        except CanNotLoadFile:
             return []
