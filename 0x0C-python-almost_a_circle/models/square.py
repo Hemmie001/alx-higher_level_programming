@@ -1,67 +1,53 @@
 #!/usr/bin/python3
-"""contains class Square implements class Rectangle"""
-from models.rectangle import Rectangle
+"""Class Square Module"""
+
+from .rectangle import Rectangle
+import json
 
 
 class Square(Rectangle):
-    """
-        this Square repreesentation implements rectangle
-    """
-    def __init__(self, size, x=0, y=0, id=None):
-        """
-            initialises Square (overrides Rectangle init)
-        """
+    """Class Square"""
+    def __init__(my_suare, size, x=0, y=0, id=None):
+        """Class constructor - method"""
         super().__init__(size, size, x, y, id)
+        my_suare.size = size
+
+    def __str__(my_suare):
+        """__str__ method for Square"""
+        return "[Square] ({}) {}/{} - {}".format(
+            my_suare.id, my_suare.x, my_suare.y, my_suare.width)
 
     @property
-    def size(self):
-        """returns the size of the square"""
-        return self.width
+    def size(my_suare):
+        """size getter"""
+        return my_suare.width
 
     @size.setter
-    def size(self, value):
-        """sets the value of size"""
+    def size(my_suare, value):
+        """Width setter"""
         if type(value) != int:
-            raise TypeError("width must be an integer")
-        if value <= 0:
-            raise ValueError("width must be > 0")
+            raise TypeError('width must be an integer')
+        if value < 0:
+            raise ValueError('width must be > 0')
+        my_suare.width = value
+        my_suare.height = value
 
-        self.width = value
-        self.height = value
+        def update(my_suare, *args, **kwargs):
+            """updates values of my_quare instance from args or kwargs"""
+            attributes = ["id", "size", "x", "y"]
+            if args is not None:
+                for i in range(len(args)):
+                    setattr(my_suare, attributes[i], args[i])
+            if len(args) == 0 or args[0] == "":
+                if kwargs is not None:
+                    for key, value in kwargs.items():
+                        setattr(my_suare, key, value)
 
-    def update(self, *args, **kwargs):
-        """
-            assigns key/value argument to attributes
-            kwargs is skipped if args is not empty
-            Args:
-                *args -  variable number of no-keyword args
-                **kwargs - variable number of keyworded args
-        """
-        if len(args) == 0:
-            for key, val in kwargs.items():
-                self.__setattr__(key, val)
-            return
-
-        try:
-            self.id = args[0]
-            self.size = args[1]
-            self.x = args[2]
-            self.y = args[3]
-        except IndexError:
-            pass
-
-    def __str__(self):
-        """Overloading str function"""
-        return "[{}] ({}) {}/{} - {}".format(type(self).__name__,
-                                             self.id, self.x,
-                                             self.y,
-                                             self.width)
-
-    def to_dictionary(self):
-        """
-            Returns the dictionary representation of a Square
-        """
-        return {'id': getattr(self, "id"),
-                'size': getattr(self, "width"),
-                'x': getattr(self, "x"),
-                'y': getattr(self, "y")}
+        def to_dictionary(my_suare):
+            """returns the dictionary representation of the Square instance"""
+            return {
+                    'id': my_suare.id,
+                    'size': my_suare.size,
+                    'x': my_suare.x,
+                    'y': my_suare.y
+                   }
