@@ -58,10 +58,7 @@ class Square(Rectangle):
                         my_suare.y = value
 
         def to_dictionary(my_suare):
-            """returns the dictionary representation of the Square instance"""
-            return {
-                    'id': my_suare.id,
-                    'size': my_suare.size,
-                    'x': my_suare.x,
-                    'y': my_suare.y
-                   }
+        """To dictionary method"""
+        attributes = ["id", "size", "x", "y"]
+        values = [my_suare.id, my_suare.width, my_suare.x, my_suare.y]
+        return dict(zip(attributes, values))
