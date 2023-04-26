@@ -32,16 +32,16 @@ class Square(Rectangle):
         my_suare.width = value
         my_suare.height = value
 
-        def update(self, *args, **kwargs):
+        def update(my_suare, *args, **kwargs):
             """Update method"""
             attributes = ["id", "size", "x", "y"]
             if args is not None:
                 for i in range(len(args)):
-                    setattr(self, attributes[i], args[i])
+                    setattr(my_suare, attributes[i], args[i])
             if len(args) == 0 or args[0] == "":
                 if kwargs is not None:
                     for key, value in kwargs.items():
-                        setattr(self, key, value)
+                        setattr(my_suare, key, value)
 
         def to_dictionary(my_suare):
             """To dictionary method"""
