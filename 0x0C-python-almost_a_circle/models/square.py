@@ -32,30 +32,26 @@ class Square(Rectangle):
         my_suare.width = value
         my_suare.height = value
 
-        def update(my_suare, *args, **kwargs):
-            """updates values of the Square instance from args or kwargs"""
-            if args is not None and len(args) > 0:
-                i = 0
-                for arg in args:
-                    if i == 0:
-                        my_suare.id = arg
-                    elif i == 1:
-                        my_suare.size = arg
-                    elif i == 2:
-                        my_suare.x = arg
-                    elif i == 3:
-                        my_suare.y = arg
-                    i += 1
-            elif kwargs is not None:
-                for (key, value) in kwargs.items():
-                    if key == "id":
-                        my_suare.id = value
-                    elif key == "size":
-                        my_suare.size = value
-                    elif key == "x":
-                        my_suare.x = value
-                    elif key == "y":
-                        my_suare.y = value
+        def update(self, *args, **kwargs):
+        """
+            assigns key/value argument to attributes
+            kwargs is skipped if args is not empty
+            Args:
+                *args -  variable number of no-keyword args
+                **kwargs - variable number of keyworded args
+        """
+        if len(args) == 0:
+            for key, val in kwargs.items():
+                self.__setattr__(key, val)
+            return
+
+        try:
+            self.id = args[0]
+            self.size = args[1]
+            self.x = args[2]
+            self.y = args[3]
+        except IndexError:
+            pass
 
         def to_dictionary(my_suare):
             """To dictionary method"""
