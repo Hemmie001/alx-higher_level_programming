@@ -33,13 +33,13 @@ class Square(Rectangle):
         my_suare.height = value
 
         def update(my_suare, *args, **kwargs):
-        """
+            """
             assigns key/value argument to attributes
             kwargs is skipped if args is not empty
             Args:
                 *args -  variable number of no-keyword args
                 **kwargs - variable number of keyworded args
-        """
+            """
         if len(args) == 0:
             for key, val in kwargs.items():
                 my_suare.__setattr__(key, val)
