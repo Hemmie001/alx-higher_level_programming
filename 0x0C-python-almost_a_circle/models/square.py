@@ -33,15 +33,29 @@ class Square(Rectangle):
         my_suare.height = value
 
         def update(my_suare, *args, **kwargs):
-            """updates values of my_quare instance from args or kwargs"""
-            attributes = ["id", "size", "x", "y"]
-            if args is not None:
-                for i in range(len(args)):
-                    setattr(my_suare, attributes[i], args[i])
-            if len(args) == 0 or args[0] == "":
-                if kwargs is not None:
-                    for key, value in kwargs.items():
-                        setattr(my_suare, key, value)
+            """updates values of the Square instance from args or kwargs"""
+            if args is not None and len(args) > 0:
+                i = 0
+                for arg in args:
+                    if i == 0:
+                        my_suare.id = arg
+                    elif i == 1:
+                        my_suare.size = arg
+                    elif i == 2:
+                        my_suare.x = arg
+                    elif i == 3:
+                        my_suare.y = arg
+                    i += 1
+            elif kwargs is not None:
+                for (key, value) in kwargs.items():
+                    if key == "id":
+                        my_suare.id = value
+                    elif key == "size":
+                        my_suare.size = value
+                    elif key == "x":
+                        my_suare.x = value
+                    elif key == "y":
+                        my_suare.y = value
 
         def to_dictionary(my_suare):
             """returns the dictionary representation of the Square instance"""
