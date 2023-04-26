@@ -32,7 +32,7 @@ class Square(Rectangle):
         my_suare.width = value
         my_suare.height = value
 
-        def update(self, *args, **kwargs):
+        def update(my_suare, *args, **kwargs):
         """
             assigns key/value argument to attributes
             kwargs is skipped if args is not empty
@@ -42,14 +42,14 @@ class Square(Rectangle):
         """
         if len(args) == 0:
             for key, val in kwargs.items():
-                self.__setattr__(key, val)
+                my_suare.__setattr__(key, val)
             return
 
         try:
-            self.id = args[0]
-            self.size = args[1]
-            self.x = args[2]
-            self.y = args[3]
+            my_suare.id = args[0]
+            my_suare.size = args[1]
+            my_suare.x = args[2]
+            my_suare.y = args[3]
         except IndexError:
             pass
 
