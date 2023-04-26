@@ -18,3 +18,7 @@ class Testrectangle(unittest.Testrectangle):
     def test_1(my_rectangle):
         tmp = Rectangle(1, 1)
         my_rectangle.assertEqual(tmp.width, 1)
+
+
+if __name__ == "__main__":
+    unittest.main()

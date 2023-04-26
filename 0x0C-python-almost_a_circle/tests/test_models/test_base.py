@@ -26,3 +26,7 @@ class Testbase(unittest.Testbase):
         my_base.assertEqual(tmp1.id, 174)
         tmp2 = Base(2)
         my_base.assertEqual(tmp1.id, 2)
+
+
+if __name__ == "__main__":
+    unittest.main()
