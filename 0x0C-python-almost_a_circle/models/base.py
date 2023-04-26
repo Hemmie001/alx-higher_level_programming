@@ -68,19 +68,17 @@ class Base:
             new_inst.update(**dictionary)
         return new_inst
 
-        """
-        @classmethod
+    @classmethod
     def load_from_file(cls):
         """load a list of instancesfrom a file"""
         try:
             with open(str(cls.__name__) + ".json", "r") as jsonfile:
                 list_dicts = Base.from_json_string(jsonfile.read())
                 return [cls.create(**d) for d in list_dicts]
-               except IOError:
-            return []
-        """
+            except IOError:
+                return []
 
-        @classmethod
+    @classmethod
     def load_from_file_csv(cls):
         """Return a list of classes instantiated from a CSV file.
         Reads from `<cls.__name__>.csv`.
