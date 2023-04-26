@@ -10,11 +10,11 @@ from models.rectangle import Rectangle
 class Testrectangle(unittest.Testrectangle):
     """Test for Rectangle"""
 
-    def test_0(self):
+    def test_0(my_rectangle):
         tmp = Rectangle(2, 2)
-        self.assertIsInstance(tmp, Base)
-        self.assertIsInstance(tmp, Rectangle)
+        my_rectangle.assertIsInstance(tmp, Base)
+        my_rectangle.assertIsInstance(tmp, Rectangle)
 
-    def test_1(self):
+    def test_1(my_rectangle):
         tmp = Rectangle(1, 1)
-        self.assertEqual(tmp.width, 1)
+        my_rectangle.assertEqual(tmp.width, 1)
