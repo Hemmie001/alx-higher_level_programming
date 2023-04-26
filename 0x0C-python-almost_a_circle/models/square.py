@@ -58,7 +58,7 @@ class Square(Rectangle):
                         my_suare.y = value
 
         def to_dictionary(my_suare):
-        """To dictionary method"""
-        attributes = ["id", "size", "x", "y"]
-        values = [my_suare.id, my_suare.width, my_suare.x, my_suare.y]
-        return dict(zip(attributes, values))
+            """To dictionary method"""
+            attributes = ["id", "size", "x", "y"]
+            values = [my_suare.id, my_suare.width, my_suare.x, my_suare.y]
+            return dict(zip(attributes, values))
