@@ -2,11 +2,8 @@
 const { argv } = require('process');
 const number = parseInt(argv[2]);
 
-if (!number)
-{
+if (!number) {
   console.log('Not a number');
-}
-else
-{
+} else {
   console.log('My number: ' + number);
 }
