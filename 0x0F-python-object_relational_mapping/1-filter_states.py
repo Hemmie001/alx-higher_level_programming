@@ -21,7 +21,7 @@ if __name__ == "__main__":  # to not execute code when imported
     cursor = db.cursor()  # lets U execute all d queries you need
     cursor.execute("SELECT * FROM states")
     for data in cursor.fetchall():  # prints d 1st cell of all rows
-        if data[1][0] == 'N':
+        if data[1][0] == "N":
             print(data)
     cursor.close()
     db.close()
