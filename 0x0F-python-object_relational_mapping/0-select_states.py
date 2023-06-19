@@ -25,5 +25,4 @@ if __name__ == "__main__":  # makes code not to execute when imported
     for data in cursor.fetchall():
         print(data)
     cursor.close()
-
     db.close()i
