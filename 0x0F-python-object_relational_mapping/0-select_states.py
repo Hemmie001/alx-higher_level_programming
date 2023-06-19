@@ -13,7 +13,7 @@ Your code should not be executed when imported
 """
 
 import MySQLdb
-import sys
+from sys import argv
 
 if __name__ == "__main__":
     db = MySQLdb.connect(host="localhost", port=3306,
