@@ -22,7 +22,7 @@ if __name__ == "__main__":  # to not execute code when imported
     db = MySQLdb.connect(host="localhost",
                          port=3306,
                          user=sys.argv[1],
-                         passwd=sys.argv[2],
+                         password=sys.argv[2],
                          db=sys.argv[3])
     cursor = db.cursor()  # lets U execute all d queries you need
     cursor.execute("SELECT * FROM states WHERE name = %(name)s",

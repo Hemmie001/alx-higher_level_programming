@@ -13,14 +13,14 @@ Your code should not be executed when imported
 """
 
 import MySQLdb
-from sys import argv
+import sys
 
 if __name__ == "__main__":  # to not execute code when imported
     db = MySQLdb.connect(host="localhost",
                          port=3306,
-                         user=argv[1],
-                         passwd=argv[2],
-                         db=argv[3])
+                         user=sys.argv[1],
+                         passwd=sys.argv[2],
+                         db=sys.argv[3])
     cursor = db.cursor()  # lets U execute all d queries you need
     cursor.execute("SELECT * FROM states")
     for data in cursor.fetchall():  # prints d 1st cell of all rows
