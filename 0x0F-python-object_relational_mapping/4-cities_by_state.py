@@ -22,9 +22,9 @@ if __name__ == "__main__":  # to not execute code when imported
                          passwd=sys.argv[2],
                          db=sys.argv[3])
     cursor = db.cursor()  # lets U execute all d queries you need
-    cursor.execute("""SELECT cities.id, cities.name, states.name
-                      FROM cities INNER JOIN states
-                      ON cities.state_id = states.id""")
+    cursor.execute("SELECT cities.id, cities.name, states.name\
+              FROM cities JOIN states ON cities.state_id = states.id\
+              ORDER BY id ASC")
     for data in cursor.fetchall():  # prints d 1st cell of all rows
         print(data)
     cursor.close()
