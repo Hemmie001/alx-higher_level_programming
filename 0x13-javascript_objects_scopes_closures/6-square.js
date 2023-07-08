@@ -5,15 +5,13 @@
 // it create an instance method called charPrint(c) that prints the rectangle using the character c
 // If c is undefined, it uses the character X
 
-const Square01 = require('./5-square');
-
-module.exports = class Square extends Square01 {
+module.exports = class Square extends require('./5-square.js') {
   charPrint (c) {
     if (c === undefined) {
       this.print();
     } else {
-      for (let m = 0; m < this.height; m++) {
-        console.log('C'.repeat(this.width));
+      for (let i = 0; i < this.height; i++) {
+        console.log(c.repeat(this.width));
       }
     }
   }
