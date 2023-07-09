@@ -1,8 +1,8 @@
 #!/usr/bin/node
 
-#This function writes a function that returns the reversed version of a list:
-#it uses the prototype: exports.esrever = function (list)
-# This script is without the use of built-in method reverse
+// This function writes a function that returns the reversed version of a list:
+// it uses the prototype: exports.esrever = function (list)
+// This script is without the use of built-in method reverse
 
 exports.esrever = function (list) {
   const rev = [];
