@@ -12,11 +12,11 @@ def find_peak(list_of_integers):
     mid = int(size / 2)
     loi = list_of_integers
 
-    if mid - 1 < 0 and mid + 1 >= length:
+    if mid - 1 < 0 and mid + 1 >= size:
         return loi[mid]
     elif mid - 1 < 0:
         return loi[mid] if loi[mid] > loi[mid + 1] else loi[mid + 1]
-    elif mid + 1 >= length:
+    elif mid + 1 >= size:
         return loi[mid] if loi[mid] > loi[mid - 1] else loi[mid - 1]
 
     if loi[mid - 1] < loi[mid] > loi[mid + 1]:
