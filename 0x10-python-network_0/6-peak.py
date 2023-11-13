@@ -4,12 +4,12 @@
 
 def find_peak(list_of_integers):
 
-    """Function Return a peak in a list of unsorted integers."""
+    """This Function Return a peak in a list of unsorted integers."""
     if list_of_integers == []:
         return None
 
     size = len(list_of_integers)
-    mid = int(length / 2)
+    mid = int(size / 2)
     loi = list_of_integers
 
     if mid - 1 < 0 and mid + 1 >= length:
