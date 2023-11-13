@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 """ Find a peak """
 
+
 def find_peak(list_of_integers):
 
-
-    """Return a peak in a list of unsorted integers."""
+    """Function Return a peak in a list of unsorted integers."""
     if list_of_integers == []:
         return None
 
@@ -24,4 +24,4 @@ def find_peak(list_of_integers):
 
     if loi[mid + 1] > loi[mid - 1]:
         return find_peak(loi[mid:])
-    return find_peak(loi[:mid]
+    return find_peak(loi[:mid])
